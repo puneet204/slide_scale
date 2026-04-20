@@ -69,17 +69,18 @@ def register():
 @app.route('/check_data', methods=['GET', 'POST'])
 def check_data():
     if request.method == 'POST':
-        response = request.form['option']
-        email = response.split("-")[1].strip()
+        try:
+            response = request.form['option']
+            email = response.split("-")[1].strip()
 
-        data = Users.query.filter_by(email=email).first()
-        print(data.u_eligible)
-        if data:
-            data.u_eligible = "True"
-            db.session.commit()
-        data = Users.query.all()
-        return render_template('data.html', new_data=data)
-    
+            data = Users.query.filter_by(email=email).first()
+            if data:
+                data.u_eligible = "True"
+                db.session.commit()
+            data = Users.query.all()
+            return render_template('data.html', new_data=data)
+        except Exception as e:
+            return render_template('data.html', corr="False")
     data = Users.query.all()
     return render_template('data.html', data=data)
 
@@ -90,4 +91,4 @@ def success():
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
-    app.run(debug=True)
+    app.run(debug=False)
