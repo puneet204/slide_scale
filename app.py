@@ -95,6 +95,10 @@ def update_data():
     data = Users.query.all()
     return render_template('data.html', data=data)
 
+@app.route('/logout')
+def logout():
+    return render_template('index.html')
+
 @app.route('/success')
 def success():
     return render_template('submit_ack.html')

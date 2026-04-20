@@ -22,9 +22,11 @@
         {% for val in new_data %}
             <p>{{ val.name }}, {{ val.phone }}, {{ val.resident }}, {{ val.occupation }}, {{ val.email }}, {{ val.slide }},  {{ val.u_eligible }}</p><br>
         {% endfor %}
+        <br>
+        <a href="{{ url_for('home') }}" class="btn btn-default">Home</a>
     </div>
 {% else %}
 <h4>No data found or data is corrupted.</h4><br>
+<a href="{{ url_for('logout') }}" class="btn btn-default">Logout</a>
 {% endif %}
-
 {% endblock %}
