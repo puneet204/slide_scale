@@ -2,9 +2,9 @@
 
 {% block body %}
 {% if data %}
-    <form action="/update_data" method="POST">
+    <form action="/revert_data" method="POST">
         <div class="input-group">
-            <label>Update Eligibility</label>
+            <label>Revert Eligibility</label>
             <select name="option">
                 <option value="">Select</option>
                 {% for val in data %}

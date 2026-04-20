@@ -95,6 +95,25 @@ def update_data():
     data = Users.query.all()
     return render_template('data.html', data=data)
 
+@app.route('/revert_data', methods=['GET', 'POST'])
+def revert_data():
+    if request.method == 'POST':
+        try:
+            response = request.form['option']
+            email = response.split("-")[1].strip()
+
+            data = Users.query.filter_by(email=email).first()
+            if data:
+                data.u_eligible = "False"
+                db.session.commit()
+            data = Users.query.all()
+            return render_template('revert.html', new_data=data)
+        except Exception as e:
+            return render_template('revert.html', corr="False")
+    data = Users.query.all()
+    return render_template('revert.html', data=data)
+
+
 @app.route('/logout')
 def logout():
     return render_template('index.html')
