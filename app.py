@@ -69,6 +69,17 @@ def register():
 @app.route('/check_data', methods=['GET', 'POST'])
 def check_data():
     if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        if username == "mini" and password == "Mini@123$-.":
+            return redirect(url_for('update_data'))
+            
+    return render_template('login.html')
+
+@app.route('/update_data', methods=['GET', 'POST'])
+def update_data():
+    if request.method == 'POST':
         try:
             response = request.form['option']
             email = response.split("-")[1].strip()
@@ -91,4 +102,4 @@ def success():
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
-    app.run(debug=False)
+    app.run(debug=True)

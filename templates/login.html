@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block body %}
+<form action="/check_data" method="POST">
+    <h3 align="center">User Name</h3>
+    <div class="form-group">
+        <label for="username"> Email Address</label>
+        <input type="text" name="username" class="form-control" id="username" aria-placeholder="Enter User Name" required/>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" class="form-control" id="password" aria-placeholder="Enter Your Password" required/>
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+    <a href="/" class="top-btn">Home</a>
+
+{% endblock %}
+
+
