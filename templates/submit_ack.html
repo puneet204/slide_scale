@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Thank You</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      text-align: center;
+      max-width: 500px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    .checkmark {
+      font-size: 60px;
+      color: #4CAF50;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    p {
+      color: #666;
+      font-size: 16px;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #0056b3;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+   <script>
+        setTimeout(function() {
+            window.location.href = "{{ url_for('home') }}";
+        } ,10000);
+    </script>
+</head>
+
+<body>
+
+<div class="card">
+  <div class="checkmark">✔</div>
+
+  <h1>Thank You!</h1>
+
+<h3>Your registration is successful. Your details for sliding scale has been sent for review and upon successful eligibility, you will be eligible for ₹500 off.</h3>
+<p3> You will be redrected to home page in 10 seconds...</p3>
+
+  <a href="/" class="btn">Back to Home</a>
+</div>
+
+</body>
+</html>

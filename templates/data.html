@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% if data %}
+    <form action="/check_data" method="POST">
+        <div class="input-group">
+            <label>Update Eligibility</label>
+            <select name="option">
+                <option value="">Select</option>
+                {% for val in data %}
+                <option value="{{ val.name }} - {{ val.email }}">{{ val.name }} - {{ val.email }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-dark">Submit</button>
+
+    </form>
+{% elif new_data %}
+    <div>
+        <h4>Name, Phone, Resident, Occupation, Email, Eligibility as per User, Eligible or Not</h4><br>
+        {% for val in new_data %}
+            <p>{{ val.name }}, {{ val.phone }}, {{ val.resident }}, {{ val.occupation }}, {{ val.email }}, {{ val.slide }},  {{ val.u_eligible }}</p><br>
+        {% endfor %}
+    </div>
+{% else %}
+<h4>Name, Phone, Resident, Occupation, Email, Eligibility, Eligible or Not</h4><br>
+{% endif %}
+
+{% endblock %}

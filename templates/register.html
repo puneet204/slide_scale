@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="form-container">
+    {% if warning %}
+<div>
+<h4>User is already registered. Please do not register if already registered</h4>
+</div>
+{% endif %}
+    <h2>📝 User Details</h2>
+
+    <form action="/register" method="POST">
+
+        <div class="input-group">
+            <label>Name</label>
+            <input type="text" name="name" placeholder="Enter your name" required>
+        </div>
+
+        <div class="input-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="input-group">
+            <label>Phone</label>
+            <input type="tel" name="phone" placeholder="Enter phone number" required>
+        </div>
+
+        <div class="input-group">
+            <label>Alternate Phone</label>
+            <input type="tel" name="alt_phone" placeholder="Enter alternate number">
+        </div>
+
+        <div class="input-group">
+            <label>Occupation</label>
+            <input type="text" name="occupation" placeholder="Enter occupation">
+        </div>
+
+        <div class="input-group">
+            <label>Resident</label>
+            <select name="resident">
+                <option value="">Select</option>
+                <option value="india">INDIA</option>
+                <option value="non-india">NON-INDIA</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label>Sliding Scale</label>
+            <select name="slide">
+                <option value="">Select</option>
+                <option value="eligible">Eligible</option>
+                <option value="not eligible">Not Eligible</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-dark">Submit</button>
+
+    </form>
+</div>
+
+{% endblock %}

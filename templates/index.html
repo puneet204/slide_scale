@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Therapy Home</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #4facfe, #00f2fe);
+        color: #fff;
+        text-align: center;
+    }
+
+    .container {
+        padding: 50px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(15px);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        max-width: 500px;
+    }
+
+    h1 {
+        font-size: 36px;
+        margin-bottom: 15px;
+    }
+
+    p {
+        font-size: 16px;
+        margin-bottom: 30px;
+        line-height: 1.5;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 12px 20px;
+        margin: 10px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .register {
+        background: #fff;
+        color: #0077ff;
+    }
+
+    .register:hover {
+        background: #ddd;
+    }
+
+    .login {
+        border: 2px solid #fff;
+        color: #fff;
+    }
+
+    .login:hover {
+        background: rgba(255,255,255,0.2);
+    }
+</style>
+</head>
+
+<body>
+{% if warning %}
+<div>
+<h4>User is already registered.</h4>
+</div>
+{% endif %}
+<div class="container">
+    <h1>🌿 Welcome to Your Therapy Space</h1>
+
+    <p>
+        Begin your journey towards better mental health.<br> 
+        Please register yourself for sliding scale eligibility check.
+    </p>
+
+    <a href="{{ url_for('register') }}" class="btn btn-default">Register</a>
+</div>
+
+</body>
+</html>
